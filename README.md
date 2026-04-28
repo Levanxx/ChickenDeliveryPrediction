@@ -66,10 +66,10 @@ python -m venv venv
 venv\Scripts\Activate.ps1
 
 # Instalar dependencias
-pip install -r requirements.txt
+pip install -r ml/requirements.txt
 
 # Si falla pip
-python -m pip install -r requirements.txt
+python -m pip install -r ml/requirements.txt
 
 
 ##############################
@@ -79,3 +79,11 @@ python -m pip install -r requirements.txt
 # Desactivar entorno virtual
 deactivate
 ```
+
+
+### Levantar API con FastAPI
+
+uvicorn ml.api_model:app --reload --port 8000
+
+### Abrir en navegador:
+http://localhost:8000/docs
