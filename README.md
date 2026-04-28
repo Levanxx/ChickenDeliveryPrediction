@@ -22,8 +22,10 @@ python3 -m venv venv
 
 # Activar entorno
 source venv/bin/activate
+---
 
-🪟 Windows (CMD)
+### 🪟 Windows
+```cmd
 # Ir a la carpeta del proyecto
 cd ruta\de\tu\proyecto
 
@@ -32,13 +34,14 @@ python -m venv venv
 
 # Activar entorno
 venv\Scripts\activate
-🪟 Windows (PowerShell)
+###🪟 Windows
+```PowerShell
 # Ir a la carpeta del proyecto
 cd ruta\de\tu\proyecto
 
 # Crear entorno virtual
 python -m venv venv
-
+---
 # Activar entorno
 venv\Scripts\Activate.ps1
 📦 Instalar dependencias
