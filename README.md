@@ -1,19 +1,21 @@
-## ⚙️ Configuración del entorno y ejecución del modelo
+# ⚙️ Configuración del Entorno y Ejecución del Modelo
 
 ---
 
-### 🧠 Requisitos previos
+## 🧠 Requisitos previos
 
-- Python 3.8 o superior  
-- Terminal (CMD, PowerShell, Bash, etc.)
+- 🐍 Python 3.8 o superior  
+- 💻 Terminal (CMD, PowerShell, Bash, etc.)
 
 ---
 
-## 🖥️ Crear y activar entorno virtual
-
-### 🍎 macOS / 🐧 Linux
+## 🖥️ Configuración completa
 
 ```bash
+##############################
+# 🍎 macOS / 🐧 Linux
+##############################
+
 # Ir a la carpeta del proyecto
 cd ruta/de/tu/proyecto
 
@@ -22,10 +24,18 @@ python3 -m venv venv
 
 # Activar entorno
 source venv/bin/activate
----
 
-### 🪟 Windows
-```cmd
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Si falla pip
+python3 -m pip install -r requirements.txt
+
+
+##############################
+# 🪟 Windows (CMD)
+##############################
+
 # Ir a la carpeta del proyecto
 cd ruta\de\tu\proyecto
 
@@ -34,17 +44,38 @@ python -m venv venv
 
 # Activar entorno
 venv\Scripts\activate
-###🪟 Windows
-```PowerShell
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Si falla pip
+python -m pip install -r requirements.txt
+
+
+##############################
+# 🪟 Windows (PowerShell)
+##############################
+
 # Ir a la carpeta del proyecto
 cd ruta\de\tu\proyecto
 
 # Crear entorno virtual
 python -m venv venv
----
+
 # Activar entorno
 venv\Scripts\Activate.ps1
-📦 Instalar dependencias
+
+# Instalar dependencias
 pip install -r requirements.txt
-Si ocurre un error con pip:
+
+# Si falla pip
 python -m pip install -r requirements.txt
+
+
+##############################
+# 🚀 Extra
+##############################
+
+# Desactivar entorno virtual
+deactivate
+```
