@@ -3,6 +3,7 @@ from pathlib import Path
 from threading import Lock, Thread
 from typing import List
 import json
+import shutil
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -14,9 +15,15 @@ from ml.train_model import train_and_save
 app = FastAPI(title="ChickenDelivery ML API", version="2.0")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = BASE_DIR / "ml" / "models" / "modelo_ventas.pkl"
+BASE_MODEL_PATH = BASE_DIR / "ml" / "models" / "modelo_ventas.pkl"
+RUNTIME_DIR = BASE_DIR / "ml" / "models" / "runtime"
+RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+MODEL_PATH = RUNTIME_DIR / "modelo_ventas.pkl"
 LIVE_DATA_PATH = BASE_DIR / "data" / "ventas_reales.csv"
-STATUS_PATH = BASE_DIR / "ml" / "models" / "training_status.json"
+STATUS_PATH = RUNTIME_DIR / "training_status.json"
+
+if not MODEL_PATH.exists():
+    shutil.copy2(BASE_MODEL_PATH, MODEL_PATH)
 
 model_lock = Lock()
 training_lock = Lock()

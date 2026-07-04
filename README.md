@@ -119,6 +119,35 @@ Ejemplo de entrada:
 }
 ```
 
+### Reentrenamiento incremental
+
+La API mantiene el modelo base intacto y guarda la versión entrenada en
+`ml/models/runtime/`. Las ventas reales recibidas se consolidan por fecha en
+`data/ventas_reales.csv`; ambos artefactos son locales y están ignorados por Git.
+
+Endpoints disponibles:
+
+```http
+GET  /training/status
+POST /training/start
+```
+
+`POST /training/start` recibe ventas diarias agregadas:
+
+```json
+{
+  "origen": "Entrenamiento automático semanal",
+  "registros": [
+    {"fecha": "2026-07-04", "delivery": 3, "recojo": 3, "es_feriado": 0}
+  ]
+}
+```
+
+El entrenamiento se ejecuta en segundo plano. `GET /training/status` informa
+la etapa, progreso, filas utilizadas, rango de fechas, métricas y errores. El
+backend de ChickenDelivery programa el envío cada lunes a las 00:05 usando las
+ventas consolidadas de la semana anterior.
+
 Ejemplo de salida:
 
 ```json
