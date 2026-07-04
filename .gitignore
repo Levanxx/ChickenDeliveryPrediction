@@ -1,3 +1,6 @@
-venv/
 __pycache__/
 *.pyc
+.venv/
+venv/
+data/ventas_reales.csv
+ml/models/runtime/
