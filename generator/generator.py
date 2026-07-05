@@ -39,7 +39,6 @@ while fecha <= fecha_fin:
 
     es_feriado = 1 if fecha in feriados else 0
 
-    # 🔥 lógica de negocio realista
     if dia_semana_num >= 4:  # viernes, sábado, domingo
         delivery = np.random.randint(60, 120)
         recojo = np.random.randint(40, 90)
