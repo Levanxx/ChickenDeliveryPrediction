@@ -177,7 +177,7 @@ venv\Scripts\activate
 Instalar dependencias:
 
 ```bash
-pip install -r ml/requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Contexto del proyecto
